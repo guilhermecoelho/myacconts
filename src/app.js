@@ -3,7 +3,6 @@ import bodyParse from 'body-parser';
 import routes from './routes';
 import database from './config/database';
 
-
 const app = express();
 const morgan = require('morgan');
 
@@ -24,7 +23,7 @@ const configureExpress = () => {
     });
     
 
-    app.use('/', routes);
+    app.use('/api/v1/', routes);
 
     app.use((req, res, next) => {
         const error = new Error('URL not found');

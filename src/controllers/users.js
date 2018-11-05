@@ -3,6 +3,8 @@ import jwt from 'jsonwebtoken';
 
 import responseModels from '../commons/response';
 
+require('dotenv').config();
+
 class UsersController {
     constructor(User) {
         this.User = User;
@@ -49,7 +51,7 @@ class UsersController {
                                 email: user[0].email,
                                 id: user[0]._id
                             },
-                            'secret',//process.env.JWT_KEY,
+                            process.env.JWT_KEY,
                             {
                                 expiresIn: '1h'
                             }

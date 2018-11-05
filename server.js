@@ -1,6 +1,5 @@
 import setupApp from './src/app';
 
-require('dotenv').config();
 
 setupApp()
     .then(app =>
