@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --inspect --exec babel-node ./server.js",
+    "start": "nodemon --inspect=5528 --exec  babel-node ./server.js",
     "test": "test",
     "test:integration": "SET NODE_ENV=test & mocha --opts tests/integration/mocha.opts tests/integration/**/*_spec.js",
     "test:unit": "SET NODE_ENV=test & mocha --opts tests/unit/mocha.opts tests/unit/**/*_spec.js"
@@ -23,11 +23,14 @@
   "dependencies": {
     "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
+    "checkauth": "git+https://github.com/guilhermecoelho/package-checkAuth.git",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
+    "httpstatusresponse": "git+https://github.com/guilhermecoelho/package-httpstatusresponse.git",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.4",
     "morgan": "^1.9.0",
+    "request": "^2.88.0",
     "swagger-ui-express": "^4.0.1"
   }
 }

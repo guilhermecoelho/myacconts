@@ -1,6 +1,7 @@
 import express from 'express';
 
 import checkOut from '../middleware/check-auth';
+//import checkOut from 'checkauth';
 import BillsController from '../controllers/bills';
 import Bill from '../models/bill';
 

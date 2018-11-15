@@ -1,16 +1,24 @@
-import jwt from 'jsonwebtoken';
-
-import responseModels from '../commons/response';
+import request from 'request';
+import responseModels from 'httpstatusresponse';
 
 require('dotenv').config();
 
 module.exports = (req, res, next) => {
-    try {
-        const token = req.headers.authorization.split(' ')[1];
-        const decode = jwt.verify(token, process.env.JWT_KEY);
-        req.userData = decode;
-        next();
-    }  catch(err){
-        return responseModels.authFail(res);
-    }
+
+    return request.post({
+        headers: { "content-type": "application/json", "Authorization": "Beare " + req.headers.authorization.split(' ')[1] },
+        "url": "http://localhost:3001/api/v1/checkauth/",
+
+    },
+        (error, response, body) => {
+            if (error) {
+                return responseModels.authFail(res);
+            }
+            if (response.statusCode == 401) {
+                return responseModels.authFail(res);
+            } else {
+                next();
+            }
+
+        });
 };

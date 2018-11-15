@@ -1,4 +1,4 @@
-import responseModels from '../commons/response';
+import responseModels from 'httpstatusresponse';
 
 class BillsController {
     constructor(Bill) {
